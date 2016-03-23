@@ -1,0 +1,622 @@
+@mixin reset 
+    list-style: none
+    font-weight: 400
+    margin: 0
+    padding: 0
+@mixin a-reset
+    color: #fff
+    text-decoration: none
+@mixin clearfix
+    &:after
+        content: ' '
+        display: block
+        height: 0
+        width: 0
+        font-size: 0
+        clear: both
+@mixin arrow($direction, $length, $width, $color: #fff)
+    &:before
+        content: ' ' 
+        position: absolute
+        height: 0
+        @if $direction == left
+            border-top: solid $width/2 transparent
+            border-right: solid $length $color
+            border-bottom: solid $width/2 transparent
+        @else if $direction == right
+            border-top: solid $width/2 transparent
+            border-left: solid $length $color
+            border-bottom: solid $width/2 transparent
+        @else if $direction == up
+            border-left: solid $width/2 transparent
+            border-right: solid $width/2 transparent
+            border-bottom: solid $length $color
+        @else if $direction == down
+            border-top: solid $length $color
+            border-left: solid $width/2 transparent
+            border-right: solid $width/2 transparent
+
+@mixin yaHei
+    font-family: 'Microsoft Yahei Regular','Microsoft Yahei', sans-serif
+
+@mixin simHei
+    font-family: 'SimHei Regular','Microsoft Yahei', sans-serif
+
+body, ul, h1, p, li
+    @include reset
+
+.main
+    width: 1280px
+    margin: 0 auto
+
+header
+    height: 57px
+    width: 100%
+    .fl
+        float: left
+        margin: 13px 0 0 59px
+        .logo 
+            height: 31px
+            line-height: 31px
+            padding-left: 41px
+            color: #000
+            @include simHei
+            font-size: 21px
+            background: url(../resources/icons/book-s.png) no-repeat 0 50%
+            text-decoration: none
+
+    .fr
+        float: right
+        @include yaHei
+        .nav
+            float: left
+            li
+                float: left
+                margin-right: 26px
+                a
+                    display: block
+                    padding: 16px 20px 18px
+                    border-bottom: none
+                    color: #787b83
+                    text-decoration: none
+                &:after
+                    content: ' '
+                    display: block
+                    width: 0
+                    height: 3px
+                    background-color: #e74f4d
+                    transition: width .3s
+                &:hover:after,&:first-child:after
+                    width: 100%
+                    height: 3px
+                &.last
+                    margin-right:  11px
+        $login-top: 17px
+        .login
+            float: right
+            height: 31px
+            padding: $login-top 0 0 20px
+            margin-right: 67px
+            color: #e74f4d
+            font-size: 14px
+            background: url(../resources/icons/people.png) no-repeat 0 $login-top
+            text-decoration: none
+
+
+footer
+    height: 58px
+    color: #fff
+    @include simHei
+    font-size: 12px
+    background: #303039
+    .copyright
+        float: left
+        margin: 30px 0 0 100px
+    .return 
+        float: right
+        margin: 32px 41px 0 0
+        a 
+            color: #fff
+            text-decoration: none
+
+
+.content
+    .banner
+        position: relative
+        height: 690px
+        @include yaHei
+        background: url(../resources/banner.png) no-repeat 0 0
+        .title
+            position: absolute
+            left: 116px
+            top: 230px
+            color: #fff
+            font-size: 60px
+            font-weight: 400
+        .desc
+            position: absolute
+            left: 124px
+            top: 310px
+            width: 295px
+            color: #fffdfd
+            font-size: 21px
+            // white-space: pre
+        .start
+            @include a-reset
+            position: absolute
+            left: 126px
+            top: 429px
+            width: 331px
+            height: 65px
+            font-size: 30px
+            line-height: 65px
+            text-align: center
+            background: #e74f4d
+    .feature
+        height: 250px
+        ul
+            padding-top: 45px
+        li
+            float: left
+            width: 25%
+            text-align: center
+            .icon
+                width: 42px
+                height: 42px
+                margin: 0 auto 48px auto
+                background: url('../resources/icons/circle.png') no-repeat 0 0
+            .icon-1
+                background: url('../resources/icons/flag.png') no-repeat 0 0
+            .icon-2
+                background: url('../resources/icons/flower.png') no-repeat 0 0
+            .icon-3
+                background: url('../resources/icons/block.png') no-repeat 0 0
+            .text
+                @include simHei
+                padding: 0 71px 0 71px
+                border-right: solid 1px #767777
+                color: #767777
+                &.text-3
+                    border-right: none
+    .intro
+        height: 360px
+        background: #edecec
+        overflow: hidden
+        .icon
+            width: 92px
+            height: 92px
+            margin: 89px auto 48px auto
+            background: url(../resources/icons/book-b.png) no-repeat 0 0
+        .text
+            color: #323333
+            @include simHei
+            font-size: 53.59px
+            text-align: center
+            opacity: .5
+    .map
+        @include clearfix 
+        height: 340px
+        background: url(../resources/map.png) no-repeat 0 0
+        .title
+            margin-top: 52px
+            text-align: center
+            @include yaHei
+            font-size: 21px
+            color: #fff
+            &:after
+                content: ' '
+                display: block
+                height: 2px
+                width: 31px
+                margin: 9px auto 0 auto
+                background: #fff
+        .desc
+            margin-top: 19px
+            text-align: center
+            @include yaHei
+            font-size: 12px
+            color: #fff
+            opacity: .8
+        .area
+            margin-top: 50px
+            padding: 0 111.5px
+            font-size: 0
+            input
+                border: none
+                padding: 0
+                height: 100%
+                width: 100%
+            .input-wrapper
+                position: relative
+                font-size: 12px
+                display: inline-block
+                width: 234px
+                height: 36px
+                border: solid 1px #fff
+                margin: 0 14px
+                &:hover
+                    border: solid 1px #be4e48
+                    border-bottom: none
+                    .list
+                        display: block;
+                input
+                    text-indent: 12px
+                .expand
+                    position: absolute
+                    right: 12px
+                    top: 9px
+                    width: 19px
+                    height: 18px
+                    background: url(../resources/icons/arrow.png) no-repeat 0 0
+                .list
+                    display: none
+                    position: absolute
+                    top: 36px
+                    left: -1px
+                    width: 234px
+                    border: solid 1px #be4e48
+                    border-top: none
+                    .item
+                        height: 25px
+                        padding-left: 32px
+                        background-color: #e4e3e5
+                        @include yaHei
+                        &.item:hover
+                            background: url(../resources/icons/select.png) no-repeat 9px 9px #be4e48
+                        a
+                            display: block
+                            height: 100%
+                            font-size: 12px
+                            line-height: 25px
+                            text-decoration: none
+                            color: #323333
+                            opacity: .7
+            .search
+                @include yaHei
+                display: inline-block
+                width: 236px
+                height: 36px
+                margin: 0 14px
+                font-size: 14px
+                color: #fff
+                text-decoration: none
+                background: #be4e48
+                text-align: center
+                vertical-align: top
+                line-height: 36px
+    .activity
+        height: 605px
+        padding-top: 101px
+        ul
+            width: 987px
+            margin: 0 auto
+            overflow: hidden
+            li
+                float: left
+                margin-left: 37px
+                &:first-child
+                    margin-left: 0
+                &:nth-child(2)
+                    padding-top: 51px
+                    position: relative
+                    .text
+                        position: absolute
+                        top: 0
+                        left: 0
+                        width: 100%
+                        text-align: center
+                        .title
+                            margin-top: 0
+                            line-height: 20px
+                            font-size: 20px
+                            letter-spacing: 38px
+                            text-indent: 13px
+                            white-space: nowrap
+                            margin-bottom: 8px
+                .pic
+                    width: 217px
+                    height: 335px
+                    border: solid 1px #dadada
+                    img
+                        display: block
+                        margin: 11px 0 0 8px
+                .text
+                    @include simHei
+                    text-align: center
+                    .title
+                        margin-top: 12px
+                        color: #323333
+                        font-size: 14px
+                        line-height: 14px
+                        margin-bottom: 11px
+                    .desc
+                        font-size: 12px
+                        line-height: 12px
+                        opacity: .5
+    .more
+        ul
+            @include clearfix
+        li
+            float: left
+        .carousel-screen
+            width: 850px
+            height: 566px
+            overflow: hidden
+            @include yaHei
+            color: #fff
+            position: relative
+            .depic
+                position: absolute
+                top: 0
+                left: 0
+                padding: 117.945px 237px 0
+                text-align: center
+            h1
+                font-size: 49.47px
+                line-height: 75.58px
+                font-weight: 400
+            .title
+                font-size: 157.79px
+                line-height: 157.79px
+                margin-top: -21.95px
+            .content
+                font-size: 21.91px
+                line-height: 43.15px
+                margin-top: 8.485px
+                text-align: left
+        .carousel-desc
+            $arrow-len: 26px
+            width: 430px
+            height: 566px
+            position: relative
+            @include arrow(left, $arrow-len, 31px)
+            &:before
+                top: 0
+                bottom: 0
+                left: -$arrow-len
+                margin: auto
+            .desc-1
+                @include simHei
+                padding: 165px 71px 0
+                text-align: center
+                p
+                    margin-top: 22px
+                    color: #aaa
+                    font-size: 12px
+                    line-height: 30px
+                .more
+                    display: block
+                    width: 105px
+                    height: 33px
+                    border: solid 1px #e25c60
+                    margin: 41px auto 0;
+                    @include yaHei
+                    @include a-reset
+                    color: #e25c60
+                    line-height: 33px
+                    text-decoration: none
+                .carousel-nav
+                    margin-top: 24px 
+                    a
+                        display: inline-block
+                        width: 9px
+                        height: 9px
+                        border: solid 1px #aaa
+                        border-radius: 50%
+                        margin: 0 7px
+                        &.hover
+                            background: #aaa
+
+        .block-red, .block-white, .block-pic
+            height: 521px
+        .block-red, .block-white
+            width: 425px
+            @include simHei
+            font-size: 21px
+            .block-content
+                text-align: center
+                padding: 168.32px 128px 0
+                .title
+                    line-height: 30.36px
+                    &:after
+                        content: ' '
+                        display: block
+                        height: 2px
+                        width: 30px
+                        margin: 20.32px auto 0 auto
+                .more
+                    display: inline-block
+                    width: 168px
+                    height: 42px
+                    margin-top: 25px
+                    line-height: 42px
+                    text-decoration: none
+        .block-red
+            background: #e7504d
+            .title
+                color: #fff
+                &:after
+                    background: #fff
+            .more
+                color: #fff
+                border: solid 1px #fff
+        .block-white
+            .title
+                color: #323333
+                &:after
+                    background: #ababab
+            .more
+                color: #e74f4d
+                border: solid 1px #e74f4d
+        .block-pic
+            position: relative
+            @include arrow(right, 26px, 31px)
+            &:before
+                top: 0
+                bottom: 0
+                margin: auto
+    .info
+        height: 748px
+        .info-content
+            padding: 118px 138px 0 
+            text-align: center
+            >h1 
+                @include simHei
+                font-size: 21px
+                font-weight: 400
+                line-height: 30.36px
+                color: #323333
+                &:after
+                    content: ' '
+                    display: block
+                    height: 2px
+                    width: 30px
+                    margin: 7.32px auto 0 auto
+                    background: #e74f4d
+            p
+                @include yaHei
+                font-size: 12px
+                line-height: 18px
+                color: #aaa
+                margin-top: 22.5px
+        .info-main
+            text-align: left
+            height: 284px
+            margin-top: 104px
+            @include clearfix
+            .principle
+                $font-color: #231815
+                float: left
+                width: 230px
+                height: 100%
+                @include simHei
+                color: $font-color
+                li
+                    @include clearfix
+                h1
+                    font-size: 14px
+                    line-height: 1
+                p
+                    font-size: 12px
+                    line-height: 21px
+                    opacity: .6
+                .more
+                    @include a-reset
+                    font-size: 12px
+                    line-height: 19.45px
+                    color: $font-color
+                    opacity: .6
+                    float: right
+                    padding-left: 17px
+                    margin-top: 2.775px
+                    background: url(../resources/icons/down.png) no-repeat 0 6.725px
+            .form
+                float: right
+                width: 640px
+                height: 100%
+                vertical-align: top
+                form
+                    @include clearfix
+                    @include simHei
+                .col-1
+                    float: left
+                    width: 100%
+                .col-2
+                    float: left
+                    width: 311px
+                    height: 41px
+                .wrapper
+                    background: #ededee
+                    label
+                        font-size: 12px
+                        color: #231815
+                        padding-left: 17px
+                        opacity: .8
+                    input, textarea
+                        height: 100%
+                        padding: 0
+                        border: none
+                        outline: none
+                        background: transparent
+                .age,.address
+                    margin-left: 17px
+                .tel,.address,.dreamlife,.submit
+                    margin-top: 13px
+                .dreamlife
+                    height: 121px
+                    label
+                        display: block
+                    div
+                        padding: 10px 0
+                    textarea
+                        height: 85px
+                        width: 622px
+                .submit
+                    display: block
+                    height: 41px
+                    font-size: 12px
+                    line-height: 41px
+                    text-align: center
+                    color: #323333
+                    text-decoration: none
+                    background: #ededee
+    .contact
+        padding: 92px 384px 75px
+        text-align: center
+        @include simHei
+        color: #fff
+        h1
+            font-size: 21px
+            line-height: 48.37px
+        p
+            margin-top: -4.685px
+            font-size: 12px
+            line-height: 18px
+        background: #32363e
+        .email-wrapper
+            margin-top: 28px
+            @include yaHei
+            height: 41px
+            .email
+                display: inline-block
+                width: 431px
+                height: 100%
+                font-size: 14px
+                border: none
+                padding: 0
+                line-height: 26.97px
+                // color: #aaa
+                vertical-align: middle;
+                text-indent: 10px
+                outline: none
+            .submit
+                @include a-reset
+                display: inline-block
+                width: 80px
+                height: 100%
+                background: #6f7278
+                vertical-align: middle;
+                line-height: 41px
+        .share
+            margin-top: 37px
+            font-size: 0
+            li
+                display: inline-block
+                width: 29px
+                height: 25px
+                background: #fff
+                margin: 0 13.5px
+                a
+                    display: block
+                    width: 100%
+                    height: 100%
+            .qq
+                background:url(../resources/icons/qq.png) no-repeat 0 0
+            .weibo
+                background:url(../resources/icons/weibo.png) no-repeat 0 0
+            .twitter
+                background:url(../resources/icons/twitter.png) no-repeat 0 0
+            .global
+                background:url(../resources/icons/global.png) no-repeat 0 0
+
+

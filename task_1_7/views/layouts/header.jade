@@ -1,0 +1,16 @@
+header#header
+	-var link = 'javascript:;'
+	.fl
+		a.logo(href='index.html') 新世界
+	.fr
+		.nav
+			ul
+				for val , index in ['首页', '最新活动', '项目介绍', '爱心社区', '关于我们']
+					if index == 4
+						li.last
+							a(href=link)= val
+					else
+						li
+							a(href=link)= val
+		a.login(href=link) 登陆
+			

@@ -1,0 +1,198 @@
+extends ./layouts/layout.jade
+
+block content
+	-var link = 'javascript:;'
+	.content
+		section.banner
+			h1.title Time of new life
+			p.desc 新时代，年轻的人们让我们一起体验新生活，享受新生活
+			a.start(href=link) 开始体验
+		section.feature
+			ul
+				for val, index in ['打造全新世界观，让你更爱你的生活', '丰富多彩的公益活动，发挥新世界的主人公意识', '时尚的新理念，超前体验未知的生活', '完善的培养机制，培养你全新的世界观']
+					li(class='li-'+index)
+						div(class='icon icon-'+index)
+						div(class='text text-'+index)= val
+		section.intro
+			.icon
+			.text 关于新世界，你不知道的还有什么？
+		section.map
+			.title 查找新世界城市活动信息
+			.desc 每个城市的有不同的活动信息，请自主查询您所需要了解的城市
+			.area
+				.input-wrapper
+					input.country(placeholder='中国' readonly)
+					a.expand(href=link)
+					ul.list
+						li.item
+							a(href=link) 中国
+						li.item
+							a(href=link) 美国
+						li.item
+							a(href=link) 澳大利亚
+						li.item
+							a(href=link) 加拿大	
+				.input-wrapper
+					input.province(placeholder='省份' readonly)
+					a.expand(href=link)
+					ul.list
+						li.item
+							a(href=link) 北京市
+						li.item
+							a(href=link) 天津市
+						li.item
+							a(href=link) 陕西省
+						li.item
+							a(href=link) 内蒙古自治区
+						li.item
+							a(href=link) 辽宁省
+				.input-wrapper
+					input.city(placeholder='城市' readonly)
+					a.expand(href=link)
+					ul.list
+						li.item
+							a(href=link) 东区
+						li.item
+							a(href=link) 西区
+						li.item
+							a(href=link) 北区
+						li.item
+							a(href=link) 南区
+				a.search(href=link) 搜索
+		section.activity
+			ul
+				li
+					.pic
+						img(src='./resources/activity-1.jpg')
+					.text
+						.title 北京活动
+						.desc 新社区大联盟
+				li
+					.pic
+						img(src='./resources/activity-2.jpg')
+					.text
+						.title 上海活动
+						.desc 夜上海新景观探索
+				li
+					.pic
+						img(src='./resources/activity-3.jpg')
+					.text
+						.title 深圳活动
+						.desc 全新海岸线观点站
+				li
+					.pic
+						img(src='./resources/activity-4.jpg')
+					.text
+						.title 香港活动
+						.desc 奢侈消费大派送
+		section.more
+			ul
+				li.carousel-screen
+					img(src='./resources/man.png')
+					.depic
+						h1 新世界
+						p.title TIME
+						span.content 
+							| @新世界－北京
+							br
+							span 2016.04.01
+				li.carousel-desc
+					.desc-1
+						h1
+							| 新世界 / 
+							span 01
+						p 这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界这里是新世界
+						a.more(href=link) 更多详情
+						.carousel-nav
+							a.hover(href=link)
+							a(href=link)
+							a(href=link)
+					//- .desc-2
+					//- 	h1
+					//- 		| 新世界 / 
+					//- 		span 02
+					//- 	a.more(href='#') 更多详情
+					//- 	.carousel-nav
+					//- 		a(href='#')
+					//- 		a(href='#')
+					//- 		a(href='#')
+					//- .desc-3
+					//- 	h1
+					//- 		| 新世界 / 
+					//- 		span 03
+					//- 	a.more(href='#') 更多详情
+					//- 	.carousel-nav
+					//- 		a(href='#')
+					//- 		a(href='#')
+					//- 		a(href='#')
+				li.block-red
+					.block-content
+						.title 新时代
+							br 
+							| 关于爱生活的我们
+						a.more(href=link) 查看更多
+				li.block-white
+					.block-content
+						.title 新时代
+							br 
+							| 关于爱生活的我们
+						a.more(href=link) 查看更多
+				li.block-pic
+					img(src='../resources/woman.jpg')
+		section.info
+			.info-content
+				h1 成为我们的志愿者
+				p 新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情
+					br
+					| 那就不要犹豫，快来加入我们，成为改变所有人生活的人
+				.info-main
+					.principle
+						ul
+							li
+								h1 新世界志愿者协议
+								p 加入新世界志愿者的人员必须遵守中华人民共共和国的相关法律法规，并且本着平等资源的原则 ......
+								a.more(href=link) more
+							li
+								h1 新世界志愿者协议
+								p 新世界志愿者享受世界内部所有资源共享的全系,并且享受所在四新世界活动的有限参与资格
+								a.more(href=link) more
+							li
+								h1 更多条款
+								a.more(href=link) more
+					.form
+						form(method='post' action='index.html')
+							.wrapper.name.col-2
+								label 姓名:
+									input(name='name')
+							.wrapper.age.col-2
+								label 年龄:
+									input(name='age')
+							.wrapper.tel.col-2
+								label 联系方式:
+									input(name='name')
+							.wrapper.address.col-2
+								label 联系地址:
+									input(name='address')
+							.wrapper.dreamlife.col-1
+								label 
+									div 请简单描述您梦想的生活:
+									textarea(name='dreamlife')
+							a.submit.col-1(href=link) 提交申请
+		section.contact
+			h1 联系我们
+			p 为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯
+				br
+				| 也可以通过以下任何方式关注我们动态
+			div.email-wrapper
+				input.email(placeholder='someone@email.com')
+				a.submit(href=link) 提交
+			ul.share
+				li.qq
+					a(href=link)
+				li.weibo
+					a(href=link)
+				li.twitter
+					a(href=link)
+				li.global
+					a(href=link)
+					
