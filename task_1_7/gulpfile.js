@@ -5,7 +5,12 @@ var jade = require('gulp-jade');
 var del = require('del');
 gulp.task('default', ['clean'],function () {
   // place code for your default task here
-  gulp.start('resources','styles','scripts', 'templates');
+  gulp.start(
+  	'resources',
+  	'styles',
+  	// 'scripts', 
+  	'templates'
+  	);
 });
 gulp.task('styles', function () {
 	gulp.src('./src/sass/*.sass')

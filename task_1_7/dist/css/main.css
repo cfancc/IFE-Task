@@ -431,7 +431,8 @@ footer {
   border: solid 1px #e74f4d; }
 
 .content .more .block-pic {
-  position: relative; }
+  position: relative;
+  width: 430px; }
   .content .more .block-pic:before {
     content: ' ';
     position: absolute;
